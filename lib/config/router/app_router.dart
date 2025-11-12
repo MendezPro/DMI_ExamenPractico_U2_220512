@@ -15,9 +15,16 @@ final appRouter = GoRouter(
 
   /// Lista de todas las rutas configuradas en la app
   routes: [
-    /// Ruta principal - Muestra la lista de películas en cartelera
+    /// Ruta Splash Screen - Primera pantalla con animación y audio
     GoRoute(
       path: '/',
+      name: SplashScreen.name,
+      builder: (context, state) => const SplashScreen(),
+    ),
+
+    /// Ruta principal - Muestra la lista de películas en cartelera
+    GoRoute(
+      path: '/home',
       name: HomeScreen.name,
       builder: (context, state) => const HomeScreen(),
     ),

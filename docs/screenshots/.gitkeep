@@ -1,0 +1,9 @@
+# Screenshots
+
+Carpeta para almacenar las capturas de pantalla de la aplicación para el reporte de avance.
+
+## Capturas requeridas:
+- splash.png - Splash Screen con animación
+- loading.png - Loading Screen con porcentaje
+- swiper.png - Swiper mejorado con título, fecha y clasificación
+- now_playing.png - Sección Now Playing con fecha dinámica
