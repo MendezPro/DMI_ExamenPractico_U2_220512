@@ -24,6 +24,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true
@@ -34,3 +35,22 @@ flutter:
     - assets/icon/
     - assets/audio/
     - assets/animations/
+
+# Configuración de iconos de la app
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/LogoCineVerse.png"
+  min_sdk_android: 21
+  web:
+    generate: true
+    image_path: "assets/icon/LogoCineVerse.png"
+  windows:
+    generate: true
+    image_path: "assets/icon/LogoCineVerse.png"
+  macos:
+    generate: true
+    image_path: "assets/icon/LogoCineVerse.png"
+  linux:
+    generate: true
+    image_path: "assets/icon/LogoCineVerse.png"

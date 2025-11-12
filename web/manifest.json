@@ -1,11 +1,11 @@
 {
-    "name": "cinemapedia_220512",
-    "short_name": "cinemapedia_220512",
+    "name": "CineVerse - El poder del cine",
+    "short_name": "CineVerse",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#0A0A0A",
+    "theme_color": "#DC143C",
+    "description": "CineVerse - Tu aplicación de películas y series favorita",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
