@@ -15,10 +15,10 @@ Este reporte documenta las acciones realizadas, los commits efectuados, y las ev
 ## 👤 2. Información General del Estudiante
 - **Nombre completo:** Orlando Mendez Montes
 - **Matrícula:** 220512
-- **Grupo:** [Agregar tu grupo]
+- **Grupo:** Decimo "B"
 - **Repositorio privado:** https://github.com/MendezPro/DMI_ExamenPractico_U2_220512
 - **Versión actual:** `v1.0-examen`
-- **Último commit registrado:** `Pendiente - se actualizará después del push final`
+- **Último commit registrado:** `docs: actualizar README con reporte de avance completol`
 
 ---
 
@@ -37,10 +37,10 @@ Este reporte documenta las acciones realizadas, los commits efectuados, y las ev
 
 | Commit | Mensaje | Fecha |
 |:--------|:----------|:-------|
-| `Pendiente` | feat: implementar splash screen con animación y audio | 12/11/2025 |
-| `Pendiente` | feat: implementar loading screen progresivo con porcentaje | 12/11/2025 |
-| `Pendiente` | feat: mejorar swiper con título, fecha y clasificación | 12/11/2025 |
-| `Pendiente` | docs: actualizar README con reporte de avance completo | 12/11/2025 |
+| `Realizado` | feat: implementar splash screen con animación y audio | 12/11/2025 |
+| `Realizado` | feat: implementar loading screen progresivo con porcentaje | 12/11/2025 |
+| `Realizado` | feat: mejorar swiper con título, fecha y clasificación | 12/11/2025 |
+| `Realizado` | docs: actualizar README con reporte de avance completo | 12/11/2025 |
 
 ---
 
@@ -48,9 +48,9 @@ Este reporte documenta las acciones realizadas, los commits efectuados, y las ev
 
 | Evidencia | Descripción | Imagen |
 |:------------|:-------------|:--------|
-| Splash Screen | Animación inicial con logo, efecto FadeIn/ZoomIn y reproductor de audio | ![Splash](docs/screenshots/splash.png) |
-| Loading Screen | Indicador porcentual de carga (0-100%) con barra de progreso animada | ![Loading](docs/screenshots/loading.png) |
-| Swiper Principal | Muestra título, fecha de estreno y píldora de clasificación con sombreado | ![Swiper](docs/screenshots/swiper.png) |
+| Splash Screen | Animación inicial con logo, efecto FadeIn/ZoomIn y reproductor de audio | ![Splash](imgs/splash.jpeg) |
+| Loading Screen | Indicador porcentual de carga (0-100%) con barra de progreso animada | ![Loading](imgs/progresivebar.jpeg) |
+| Swiper Principal | Muestra título, fecha de estreno y píldora de clasificación con sombreado | ![Swiper](imgs/pg13.jpeg) |
 
 > 📌 **PENDIENTE:** Tomar las capturas de pantalla y subirlas al repositorio.
 
@@ -67,15 +67,23 @@ Este reporte documenta las acciones realizadas, los commits efectuados, y las ev
 - Formateo de fechas con intl en español
 - Redacción de documentación técnica
 
+Toda la evidencia de prompts y resultados se encuentra en el documento [Evidencia.pdf](imgs/Evidencia.pdf) incluido en el repositorio.
+
+---
+
+## 🧭 7. Próximas Acciones
+- [✔️ ] Integrar animación con Lottie en el Splash.  
+- [ ] Completar la sección de Series Populares.  
+- [ ] Documentar dependencias nuevas en el README.  
+- [ ] Grabar video corto mostrando la aplicación funcional.  
+
+> 🔹 *Marca con “✔️” las tareas completadas.*
+
 ---
 
 ## 💬 8. Conclusión Personal
 
-Durante este periodo de contingencia climática, aprendí a trabajar de forma autónoma y organizada. La parte más desafiante fue sincronizar el porcentaje de carga con los providers de Riverpod.
-
-Con ayuda de la Inteligencia Artificial logré implementar funcionalidades complejas como el Splash Screen animado con audio, el Loading Screen progresivo con porcentaje visual, y las mejoras del Swiper con información contextual de las películas.
-
-Antes de la entrega final planeo implementar la sección completa de Series de TV y refinar los filtros de películas según los requisitos del examen.
+Durante este periodo en el cual hubo una breve contingencia climática, aprendí a trabajar de forma autónoma y organizada. La parte más desafiante fue sincronizar el porcentaje de carga con los providers de Riverpod. Con ayuda de la Inteligencia Artificial logré implementar funcionalidades complejas como el Splash Screen animado con audio, el Loading Screen progresivo con porcentaje visual, y las mejoras del Swiper con información contextual de las películas. Antes de que sea la entrega final planeo implementar la sección completa de Series de TV y refinar los filtros de películas según los requisitos del examen.
 
 ---
 

@@ -67,7 +67,7 @@ class FullscreenLoader extends StatelessWidget {
             
             // Título
             Text(
-              'Bienvenido a Cinemapedia',
+              'Bienvenido a CineVerse',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
