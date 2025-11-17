@@ -21,7 +21,6 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   final AudioPlayer _audioPlayer = AudioPlayer();
-  bool _audioLoaded = false;
 
   @override
   void initState() {
@@ -34,9 +33,6 @@ class _SplashScreenState extends State<SplashScreen> {
     try {
       // Reproduce audio de splash
       await _audioPlayer.play(AssetSource('audio/introaudio.mp3'));
-      setState(() {
-        _audioLoaded = true;
-      });
       
       // Escucha cuando termine el audio para navegar
       _audioPlayer.onPlayerComplete.listen((event) {
@@ -111,53 +107,6 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 40),
-                
-                // Texto CineVerse
-                const Text(
-                  'CineVerse',
-                  style: TextStyle(
-                    fontSize: 42,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    letterSpacing: 2,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                
-                const Text(
-                  'el poder del cine',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.grey,
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-                
-                const SizedBox(height: 50),
-                
-                // Indicador de carga
-                if (_audioLoaded)
-                  Column(
-                    children: [
-                      SizedBox(
-                        width: 40,
-                        height: 40,
-                        child: CircularProgressIndicator(
-                          color: Colors.red.shade700,
-                          strokeWidth: 4,
-                        ),
-                      ),
-                      const SizedBox(height: 15),
-                      Text(
-                        'Cargando experiencia...',
-                        style: TextStyle(
-                          color: Colors.grey.shade500,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ],
-                  ),
               ],
             ),
           ),

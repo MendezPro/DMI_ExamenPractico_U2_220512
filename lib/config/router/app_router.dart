@@ -28,5 +28,12 @@ final appRouter = GoRouter(
       name: HomeScreen.name,
       builder: (context, state) => const HomeScreen(),
     ),
+
+    /// Ruta de Series - Muestra las series de televisión
+    GoRoute(
+      path: '/series',
+      name: TvSeriesScreen.name,
+      builder: (context, state) => const TvSeriesScreen(),
+    ),
   ],
 );

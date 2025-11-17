@@ -29,8 +29,8 @@ class FullscreenLoader extends StatelessWidget {
       {'message': '¡Todo listo! Bienvenido a CineVerse', 'progress': 1.0},
     ];
 
-    // Duración de 1.2 segundos entre cada paso = aprox 16-17 segundos total
-    return Stream.periodic(const Duration(milliseconds: 1200), (step) {
+    // Duración de 357 milisegundos entre cada paso = aprox 5 segundos total
+    return Stream.periodic(const Duration(milliseconds: 357), (step) {
       if (step < progressSteps.length) {
         return progressSteps[step];
       }

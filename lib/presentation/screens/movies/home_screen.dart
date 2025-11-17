@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: _HomeView(),
-      bottomNavigationBar: CustomButtonNavigationbar(),
+      bottomNavigationBar: CustomButtonNavigationbar(currentIndex: 0),
     );
   }
 }
@@ -42,6 +42,9 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     super.initState();
     initializeDateFormatting('es_ES', null);
     
+    // Verificar si ya se mostró el loading inicial
+    final hasLoadedBefore = ref.read(appInitialLoadingProvider);
+    
     // Cargar datos
     ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
     ref.read(popularMoviesProvider.notifier).loadNextPage();
@@ -49,15 +52,24 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     ref.read(mexicanMoviesProvider.notifier).loadNextPage();
     ref.read(topRatedMoviesProvider.notifier).loadNextPage();
 
-    // Garantizar tiempo mínimo de 17 segundos
-    Future.delayed(const Duration(milliseconds: 17000), () {
-      if (mounted) {
-        setState(() {
-          _minTimeElapsed = true;
-          _checkLoadingComplete();
-        });
-      }
-    });
+    // Si ya se cargó antes, no mostrar el loading de 17 segundos
+    if (hasLoadedBefore) {
+      setState(() {
+        _minTimeElapsed = true;
+        _isLoading = false;
+      });
+    } else {
+      // Garantizar tiempo mínimo de 5 segundos solo la primera vez
+      Future.delayed(const Duration(milliseconds: 5000), () {
+        if (mounted) {
+          setState(() {
+            _minTimeElapsed = true;
+            _checkLoadingComplete();
+          });
+        }
+      });
+    }
+
 
     // Verificar si los datos están cargados cada 500ms
     _checkDataLoading();
@@ -95,6 +107,8 @@ class _HomeViewState extends ConsumerState<_HomeView> {
       setState(() {
         _isLoading = false;
       });
+      // Marcar que ya se completó el loading inicial
+      ref.read(appInitialLoadingProvider.notifier).markAsLoaded();
     }
   }
 
@@ -102,6 +116,13 @@ class _HomeViewState extends ConsumerState<_HomeView> {
   String get currentFormattedDate {
     final now = DateTime.now();
     final formatter = DateFormat('EEEE, d \'de\' MMMM', 'es_ES');
+    return formatter.format(now);
+  }
+
+  /// Función para obtener solo el nombre del mes actual
+  String get currentMonthName {
+    final now = DateTime.now();
+    final formatter = DateFormat('MMMM', 'es_ES');
     return formatter.format(now);
   }
 
@@ -116,6 +137,13 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     final topRated = ref.watch(topRatedMoviesProvider);
     final upcomingMovies = ref.watch(upcomingMoviesProvider);
     final mexicanMovies = ref.watch(mexicanMoviesProvider);
+
+    // Filtrar películas upcoming solo del mes actual
+    final now = DateTime.now();
+    final upcomingThisMonth = upcomingMovies.where((movie) {
+      return movie.releaseDate.year == now.year &&
+             movie.releaseDate.month == now.month;
+    }).toList();
 
     return CustomScrollView(
       slivers: [
@@ -141,17 +169,18 @@ class _HomeViewState extends ConsumerState<_HomeView> {
                   ),
 
                   MovieHorizontalListview(
-                    movies: upcomingMovies,
+                    movies: upcomingThisMonth,
                     title: 'Proximamente',
-                    subTitle: currentFormattedDate,
+                    subTitle: currentMonthName,
                     loadNextPage: () =>
                         ref.read(upcomingMoviesProvider.notifier).loadNextPage(),
+                    showReleaseDate: true,
                   ),
 
                   MovieHorizontalListview(
                     movies: popular,
                     title: 'Populares',
-                    subTitle: currentFormattedDate,
+                    subTitle: null,
                     loadNextPage: () =>
                         ref.read(popularMoviesProvider.notifier).loadNextPage(),
                   ),
