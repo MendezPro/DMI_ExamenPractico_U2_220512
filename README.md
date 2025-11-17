@@ -57,8 +57,10 @@ Este reporte documenta las acciones realizadas, los commits efectuados, y las ev
 | Splash Screen | Animación inicial con logo, efecto FadeIn/ZoomIn y reproductor de audio | ![Splash](imgs/splash.jpeg) |
 | Loading Screen | Indicador porcentual de carga (0-100%) con barra de progreso animada | ![Loading](imgs/progresivebar.jpeg) |
 | Swiper Principal | Muestra título, fecha de estreno y píldora de clasificación con sombreado | ![Swiper](imgs/pg13.jpeg) |
+| Pantalla Series TV | Sección completa de series con múltiples categorías: Actuales, Por Estrenarse, Populares, Mejor Valoradas y Series Mexicanas | ![Series](imgs/Series.jpg) |
+| Categorías de Series | Vista detallada mostrando los diferentes grupos de series organizados por categoría con ratings y posters | ![Categorias Series](imgs/CategoriasSeries.jpg) |
 
-> 📌 **PENDIENTE:** Tomar las capturas de pantalla y subirlas al repositorio.
+> 📌 **NOTA:** Capturas de pantalla incluidas en el repositorio.
 
 ---
 
