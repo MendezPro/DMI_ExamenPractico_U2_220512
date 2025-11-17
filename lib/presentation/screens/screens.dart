@@ -1,5 +1,6 @@
 export 'movies/home_screen.dart';
 export 'splash/splash_screen.dart';
+export 'tv_series/tv_series_screen.dart';
 
 /// Archivo barrel que exporta todas las pantallas de la aplicación.
 /// 
