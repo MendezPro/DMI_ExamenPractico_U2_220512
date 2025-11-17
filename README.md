@@ -2,7 +2,8 @@
 **Asignatura:** Desarrollo Móvil Integral  
 **Proyecto:** Aplicación *Cinemapedia*  
 **Periodo:** Contingencia Climática — Trabajo Autónomo  
-**Fecha de entrega:** Jueves 14 de noviembre de 2025
+**Fecha de entrega:** Jueves 14 de noviembre de 2025  
+**URL Repositorio:** https://github.com/MendezPro/DMI_ExamenPractico_U2_220512
 
 ---
 
@@ -30,6 +31,8 @@ Este reporte documenta las acciones realizadas, los commits efectuados, y las ev
 | 12/11/2025 | Implementación del Splash Screen | Se creó SplashScreen con animación FadeIn/ZoomIn usando animate_do, imagen de splash vertical y reproductor de audio con audioplayers. Se configuró navegación automática a HomeScreen después de 3 segundos. | Commit de Splash Screen + Captura 2 |
 | 12/11/2025 | Pantalla de carga progresiva | Se rediseñó FullscreenLoader mostrando porcentaje numérico (0%-100%) con LinearProgressIndicator animado. El progreso incrementa sincronizado con mensajes de carga de cada provider. Incluye diseño moderno con gradientes y colores de tema. | Commit de Loading Screen + Captura 3 |
 | 12/11/2025 | Ajustes visuales en Swiper | Se agregaron al Swiper: título de película, fecha de estreno formateada con intl, píldora (pill) visual con clasificación (P, PG, PG-13, R) con colores diferenciados, y gradiente de sombreado para mejor legibilidad del texto sobre las imágenes. | Commit de Swiper mejorado + Captura 4 |
+| 16/11/2025 | Correcciones finales de películas | Se corrigió el ordenamiento de películas mexicanas por fecha de estreno descendente, se quitó el subtítulo de la sección Populares, y se implementó filtro de mes actual para películas Upcoming con fecha de estreno en lugar de rating/popularidad. | Commit de correcciones |
+| 16/11/2025 | Implementación completa de Series | Se creó toda la arquitectura para series de TV: entidades, datasources, repositories, mappers, providers, widgets (slidershow y horizontal listview), pantalla completa con 5 secciones (Actuales, Por Estrenarse, Populares, Mejor Valoradas, Mexicanas), y navegación funcional en BottomNavigationBar. | Commit de series completas |
 
 ---
 
@@ -41,6 +44,9 @@ Este reporte documenta las acciones realizadas, los commits efectuados, y las ev
 | `Realizado` | feat: implementar loading screen progresivo con porcentaje | 12/11/2025 |
 | `Realizado` | feat: mejorar swiper con título, fecha y clasificación | 12/11/2025 |
 | `Realizado` | docs: actualizar README con reporte de avance completo | 12/11/2025 |
+| `Realizado` | fix: corregir secciones de películas (Popular, Mexicanas, Upcoming) | 16/11/2025 |
+| `Realizado` | feat: implementar sección completa de Series TV con navegación | 16/11/2025 |
+| `Realizado` | chore: generar iconos de launcher para todas las plataformas | 16/11/2025 |
 
 ---
 
@@ -67,7 +73,7 @@ Este reporte documenta las acciones realizadas, los commits efectuados, y las ev
 - Formateo de fechas con intl en español
 - Redacción de documentación técnica
 
-Toda la evidencia de prompts y resultados se encuentra en el documento [Evidencia.pdf](imgs/Evidencia.pdf) incluido en el repositorio.
+Toda la evidencia de prompts y resultados se encuentra en el documento [Evidencia.md](imgs/Evidencia.md) incluido en el repositorio.
 
 ---
 
