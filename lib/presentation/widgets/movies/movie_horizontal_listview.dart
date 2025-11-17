@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:cinemapedia_220512/config/helpers/human_formats.dart';
 import 'package:cinemapedia_220512/domain/entities/movie.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 
 
@@ -12,8 +13,16 @@ class MovieHorizontalListview extends StatefulWidget {
   final String? title;
   final String? subTitle;
   final VoidCallback? loadNextPage;
+  final bool showReleaseDate;
 
-  const MovieHorizontalListview({super.key, required this.movies, this.title, this.subTitle, this.loadNextPage});
+  const MovieHorizontalListview({
+    super.key, 
+    required this.movies, 
+    this.title, 
+    this.subTitle, 
+    this.loadNextPage,
+    this.showReleaseDate = false,
+  });
 
   @override
   State<MovieHorizontalListview> createState() => _MovieHorizontalListviewState();
@@ -60,7 +69,10 @@ class _MovieHorizontalListviewState extends State<MovieHorizontalListview> {
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index){
-                return _Slide(movie: widget.movies[index]);
+                return _Slide(
+                  movie: widget.movies[index],
+                  showReleaseDate: widget.showReleaseDate,
+                );
               }
             )
           )
@@ -75,7 +87,12 @@ class _MovieHorizontalListviewState extends State<MovieHorizontalListview> {
 
 class _Slide extends StatelessWidget {
   final Movie movie;
-  const _Slide({required this.movie});
+  final bool showReleaseDate;
+  
+  const _Slide({
+    required this.movie,
+    this.showReleaseDate = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -124,27 +141,52 @@ class _Slide extends StatelessWidget {
          SizedBox(
             width: 150,
             height: 20, 
-            child: Row(
-              children: [
-                Icon(Icons.star_half_outlined, color: Colors.yellow.shade800, size: 16), 
-                const SizedBox(width: 3),
-                Text( 
-                  '${movie.voteAverage.toStringAsFixed(1)}', 
-                  style: textStyles.bodyMedium?.copyWith(color: Colors.yellow.shade800),
-                ),
-                const Spacer(),
-                Flexible( 
-                  child: Text(
-                    HumanFormats.humanReadbleNumber(movie.popularity), 
-                    style: textStyles.bodySmall,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-              ],
-            ),
+            child: showReleaseDate 
+              ? _buildReleaseDateRow(textStyles)
+              : _buildRatingRow(textStyles),
           ),
         ],
       ),
+    );
+  }
+
+  /// Construye la fila con rating y popularidad (por defecto)
+  Widget _buildRatingRow(TextTheme textStyles) {
+    return Row(
+      children: [
+        Icon(Icons.star_half_outlined, color: Colors.yellow.shade800, size: 16), 
+        const SizedBox(width: 3),
+        Text( 
+          '${movie.voteAverage.toStringAsFixed(1)}', 
+          style: textStyles.bodyMedium?.copyWith(color: Colors.yellow.shade800),
+        ),
+        const Spacer(),
+        Flexible( 
+          child: Text(
+            HumanFormats.humanReadbleNumber(movie.popularity), 
+            style: textStyles.bodySmall,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+      ],
+    );
+  }
+
+  /// Construye la fila con fecha de estreno
+  Widget _buildReleaseDateRow(TextTheme textStyles) {
+    final dateFormat = DateFormat('dd/MM/yyyy');
+    return Row(
+      children: [
+        Icon(Icons.calendar_today, color: Colors.blue.shade700, size: 14), 
+        const SizedBox(width: 5),
+        Text( 
+          dateFormat.format(movie.releaseDate), 
+          style: textStyles.bodyMedium?.copyWith(
+            color: Colors.blue.shade700,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ],
     );
   }
 }

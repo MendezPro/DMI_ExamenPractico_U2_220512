@@ -102,7 +102,7 @@ class MoviedbDataSource extends MoviesDatasource{
       'page': page,
       'region': 'MX',
       'with_original_language': 'es',
-      'sort_by':'vote_average.desc',
+      'sort_by':'release_date.desc',
       'vote_count.gte':10
     });
     final movieDBResponse = MovieDbResponse.fromJson(response.data);
